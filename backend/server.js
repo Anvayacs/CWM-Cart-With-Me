@@ -15,11 +15,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/craft', {
+const uri="mongodb+srv://admin_atlas:lpo0d2qOiuMIti5a@cluster0.xkbtl.mongodb.net/test"
+mongoose.connect(uri), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-});
+};
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
